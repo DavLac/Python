@@ -1,0 +1,122 @@
+Option Explicit
+
+Sub GenerationConfigurationSelonRTI()
+
+  Dim ColNum As Integer
+  Dim Line As String
+  Dim LineValues() As Variant
+  Dim OutputFileNum As Integer
+  Dim PathName As String
+  Dim RowNum As Integer
+  Dim SheetValues() As Variant
+  Dim j As Integer
+  Dim i As Integer
+  Dim ligne As String
+  Dim RepRacine As String
+  Dim ReponseRep As Boolean
+
+' Initialisation des variables
+' ----------------------------
+RepRacine = "d:\SoclageServeur"
+
+' Création des répertoires pour génération des scripts et fichier Excel (configuration serveur)
+' Pour créer les sous-répertoires, il faut impérativement créer les répertoires parents
+' Cela explique l'enchainement des commandes de création de répertoires
+' ---------------------------------------------------------------------------------------------
+ReponseRep = RepertoireExiste(RepRacine)
+If ReponseRep = False Then
+    ' Le répertoire ne peut pas être créé
+    MsgBox "Le répertoire '" & RepRacine & "' ne peut pas être créé. Vérifiez son accès (répertoire et droits).", vbCritical, "Vérification d'accès au répertoire..."
+
+    Else
+    
+     'Creation fichier groupe commandes
+  OutputFileNum = FreeFile
+  
+  Open "D:\SoclageServeur" & "\listeGroupeCommandes.csv" For Output Lock Write As #OutputFileNum
+  
+  Print #OutputFileNum, "Groupe commandes parent" & ";" & "Groupe commandes enfant"
+  
+ligne = ""
+
+  For j = 9 To 49
+        If Cells(9, j).Value <> "" Then
+             ligne = Cells(9, 3)
+        End If
+        
+        For i = 27 To 102
+            If Cells(i, j).Value = "X" Then
+                If ligne <> "" Then
+                    ligne = ligne & "," & Cells(i, 3)
+                Else
+                    ligne = ligne & Cells(i, 3)
+                End If
+            End If
+        Next
+        Print #OutputFileNum, "commandes-" & Cells(5, j) & ";" & ligne
+    Next
+  Close OutputFileNum
+  
+  'Creation fichier groupe serveurs
+  OutputFileNum = FreeFile
+  
+  Open "D:\SoclageServeur" & "\listeServeurs.csv" For Output Lock Write As #OutputFileNum
+  
+  Print #OutputFileNum, "Type" & ";" & "Hostname" & ";" & "Domaine" & ";" & "Groupe serveur"
+  
+ligne = ""
+    For i = 9 To 49
+        Print #OutputFileNum, "SOPRA" & ";" & Cells(5, i) & ";" & "ptx.fr.sopra" & ";" & "serveurs-" & Cells(5, i)
+    Next
+        
+  Close OutputFileNum
+  
+  'Creation fichier scenario
+  OutputFileNum = FreeFile
+  
+  Open "D:\SoclageServeur" & "\listeScenario.csv" For Output Lock Write As #OutputFileNum
+  
+  Print #OutputFileNum, "Nom scénario" & ";" & "Groupe serveurs" & ";" & "Groupe commandes"
+  
+ligne = ""
+    For i = 9 To 49
+        Print #OutputFileNum, "scenario Sopra" & ";" & "serveurs-" & Cells(5, i) & ";" & "commandes-" & Cells(5, i)
+    Next
+        
+  Close OutputFileNum
+  
+  MsgBox "Les fichiers 'listeGroupeCommandes.csv', 'listeServeurs.csv' et 'listeScenario.csv' dans 'D:\SoclageServeur'"
+
+End If
+
+End Sub
+
+' FUNCTION BEGINNING *********************************************************
+'
+'  Function name :      RepertoireExiste
+'
+'  Description :        Teste l'existance d'un répertoire. S'il n'existe pas
+'                       il sera alors créé
+'
+'  Parameters IN :      Chemin : Le nom de répertoire (chemin complet)
+'
+'  Parameters OUT :     -
+'
+'  Return :             -
+'
+' ****************************************************************************
+Public Function RepertoireExiste(Chemin As String) As Boolean
+    On Error Resume Next
+    RepertoireExiste = GetAttr(Chemin) And vbDirectory
+    If RepertoireExiste = True Then
+        Exit Function
+    Else
+        MkDir (Chemin)
+        Select Case Err.Number
+            Case 53
+                RepertoireExiste = True
+            Case Else
+                RepertoireExiste = False
+        End Select
+    End If
+End Function

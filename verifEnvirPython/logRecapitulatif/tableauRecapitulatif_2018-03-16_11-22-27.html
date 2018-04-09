@@ -1,0 +1,279 @@
+
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<style>
+				body{
+					background-color: #f2f2f2;
+				}
+				
+				.accordion {
+					background-color: #eee;
+					color: #444;
+					cursor: pointer;
+					padding: 18px;
+					width: 100%;
+					border: none;
+					text-align: left;
+					outline: none;
+					font-size: 15px;
+					transition: 0.4s;
+				}
+				
+				.rouge {
+					background-color: #f8696b;
+				}
+				
+				.orange {
+					background-color: #ffb985;
+				}
+				
+				.jaune {
+					background-color: #ffeb84;
+				}
+				
+				.vertclair {
+					background-color: #a1d34f;
+				}
+				
+				.vert {
+					background-color: #63be7b;
+				}
+
+				.active, .accordion:hover {
+					background-color: #ccc; 
+				}
+
+				.panel {
+					padding: 0 18px;
+					display: none;
+				}
+				table a:link {
+					color: #666;
+					font-weight: bold;
+					text-decoration:none;
+				}
+				table a:visited {
+					color: #999999;
+					font-weight:bold;
+					text-decoration:none;
+				}
+				table a:active,
+				table a:hover {
+					color: #bd5a35;
+					text-decoration:underline;
+				}
+				table {
+					font-family:Arial, Helvetica, sans-serif;
+					color:#666;
+					font-size:12px;
+					text-shadow: 1px 1px 0px #fff;
+					background:#eaebec;
+					margin:20px;
+					border:#ccc 1px solid;
+
+					-moz-border-radius:3px;
+					-webkit-border-radius:3px;
+					border-radius:3px;
+
+					-moz-box-shadow: 0 1px 2px #d1d1d1;
+					-webkit-box-shadow: 0 1px 2px #d1d1d1;
+					box-shadow: 0 1px 2px #d1d1d1;
+				}
+				table th {
+					padding:21px 25px 22px 25px;
+					border-top:1px solid #fafafa;
+					border-bottom:1px solid #e0e0e0;
+
+					background: #ededed;
+					background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
+					background: -moz-linear-gradient(top,  #ededed,  #ebebeb);
+				}
+				table th:first-child {
+					text-align: left;
+					padding-left:20px;
+				}
+				table tr:first-child th:first-child {
+					-moz-border-radius-topleft:3px;
+					-webkit-border-top-left-radius:3px;
+					border-top-left-radius:3px;
+				}
+				table tr:first-child th:last-child {
+					-moz-border-radius-topright:3px;
+					-webkit-border-top-right-radius:3px;
+					border-top-right-radius:3px;
+				}
+				table tr {
+					text-align: center;
+					padding-left:20px;
+				}
+				table td:first-child {
+					text-align: left;
+					padding-left:20px;
+					border-left: 0;
+				}
+				table td {
+					padding:18px;
+					border-top: 1px solid #ffffff;
+					border-bottom:1px solid #e0e0e0;
+					border-left: 1px solid #e0e0e0;
+
+					background: #fafafa;
+					background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+					background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
+				}
+				table tr.even td {
+					background: #f6f6f6;
+					background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
+					background: -moz-linear-gradient(top,  #f8f8f8,  #f6f6f6);
+				}
+				table tr:last-child td {
+					border-bottom:0;
+				}
+				table tr:last-child td:first-child {
+					-moz-border-radius-bottomleft:3px;
+					-webkit-border-bottom-left-radius:3px;
+					border-bottom-left-radius:3px;
+				}
+				table tr:last-child td:last-child {
+					-moz-border-radius-bottomright:3px;
+					-webkit-border-bottom-right-radius:3px;
+					border-bottom-right-radius:3px;
+				}
+				table tr:hover td {
+					background: #f2f2f2;
+					background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
+					background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);	
+				}
+				h2,h4{
+					font-family:Arial, Helvetica, sans-serif;
+					color : #404040;
+				}
+			</style>
+		</head>
+		<body>
+	<h2>Resultat Audit du 16/03/2018 a 11h22m27s</h2><hr><h4>SCENARIO ['autre scenario test'] SERVEURS ['serveursASB'] COMMANDES ['commandesAutre']</h4><h4>serveursASB</h4><button class="accordion rouge" >slnxsosoasb01 - 0% (0/3)</button>
+						<div class="panel">
+						  <table>
+							   <tr>
+								   <th>Libelle commande</th>
+								   <th>Retour commande</th>
+								   <th>Resultat attendu</th>
+								   <th>OK/NOK</th>
+							   </tr><tr style="color:red">
+							   <td>Test port 8080</td>
+							   <td></td>
+							   <td>La commande attend un retour</td>
+							   <td>NOK</td></tr><tr style="color:red">
+							   <td>Test port 1234</td>
+							   <td></td>
+							   <td>La commande attend un retour</td>
+							   <td>NOK</td></tr><tr style="color:red">
+							   <td>Information utilisateur 'nrpe'</td>
+							   <td>nrpe,sds,se,sad,sso,ldap,pss,common</td>
+							   <td>nrpe,sds,se,sad,sso,ldap,pss,common,vtom</td>
+							   <td>NOK</td></tr></table></div><button class="accordion rouge" >slnxsosoasb02 - 0% (0/3)</button>
+						<div class="panel">
+						  <table>
+							   <tr>
+								   <th>Libelle commande</th>
+								   <th>Retour commande</th>
+								   <th>Resultat attendu</th>
+								   <th>OK/NOK</th>
+							   </tr><tr style="color:red">
+							   <td>Test port 8080</td>
+							   <td></td>
+							   <td>La commande attend un retour</td>
+							   <td>NOK</td></tr><tr style="color:red">
+							   <td>Test port 1234</td>
+							   <td></td>
+							   <td>La commande attend un retour</td>
+							   <td>NOK</td></tr><tr style="color:red">
+							   <td>Information utilisateur 'nrpe'</td>
+							   <td>nrpe,sds,se,sad,sso,ldap,pss,vtom,common</td>
+							   <td>nrpe,sds,se,sad,sso,ldap,pss,common,vtom</td>
+							   <td>NOK</td></tr></table></div><hr><h4>SCENARIO ['autre scenario test'] SERVEURS ['serveursVAF'] COMMANDES ['commandesAutre2']</h4><h4>serveursVAF</h4><button class="accordion rouge" >slnxsosovaf01 - 0% (0/3)</button>
+						<div class="panel">
+						  <table>
+							   <tr>
+								   <th>Libelle commande</th>
+								   <th>Retour commande</th>
+								   <th>Resultat attendu</th>
+								   <th>OK/NOK</th>
+							   </tr><tr style="color:red">
+							   <td>Version Linux</td>
+							   <td>Linux 2.6.32-573.12.1.el6.x86_64 x86_64</td>
+							   <td>Linux 2.6.32-573.7.1.el6.x86_64 x86_64</td>
+							   <td>NOK</td></tr><tr style="color:red">
+							   <td>Memoire libre</td>
+							   <td>5563908</td>
+							   <td>6142364 (marge: 5%)</td>
+							   <td>NOK</td></tr><tr style="color:red">
+							   <td>Swap</td>
+							   <td>32</td>
+							   <td>8</td>
+							   <td>NOK</td></tr></table></div><button class="accordion rouge" >slnxsosovaf02 - 0% (0/3)</button>
+						<div class="panel">
+						  <table>
+							   <tr>
+								   <th>Libelle commande</th>
+								   <th>Retour commande</th>
+								   <th>Resultat attendu</th>
+								   <th>OK/NOK</th>
+							   </tr><tr style="color:red">
+							   <td>Version Linux</td>
+							   <td>Linux 2.6.32-696.el6.x86_64 x86_64</td>
+							   <td>Linux 2.6.32-573.7.1.el6.x86_64 x86_64</td>
+							   <td>NOK</td></tr><tr style="color:red">
+							   <td>Memoire libre</td>
+							   <td>8379324</td>
+							   <td>6142364 (marge: 5%)</td>
+							   <td>NOK</td></tr><tr style="color:red">
+							   <td>Swap</td>
+							   <td>15.75</td>
+							   <td>8</td>
+							   <td>NOK</td></tr></table></div><button class="accordion rouge" >slnxsosovaf03 - 0% (0/4)</button>
+						<div class="panel">
+						  <table>
+							   <tr>
+								   <th>Libelle commande</th>
+								   <th>Retour commande</th>
+								   <th>Resultat attendu</th>
+								   <th>OK/NOK</th>
+							   </tr><tr style="color:red">
+							   <td>Version OS</td>
+							   <td>Red Hat Enterprise Linux Server release 6.9 (Santiago)</td>
+							   <td>Red Hat Enterprise Linux Server release 6.7 (Santiago)</td>
+							   <td>NOK</td></tr><tr style="color:red">
+							   <td>Version Linux</td>
+							   <td>Linux 2.6.32-696.10.1.el6.x86_64 x86_64</td>
+							   <td>Linux 2.6.32-573.7.1.el6.x86_64 x86_64</td>
+							   <td>NOK</td></tr><tr style="color:red">
+							   <td>Memoire libre</td>
+							   <td>5676752</td>
+							   <td>6142364 (marge: 5%)</td>
+							   <td>NOK</td></tr><tr style="color:red">
+							   <td>Swap</td>
+							   <td>32</td>
+							   <td>8</td>
+							   <td>NOK</td></tr></table></div>
+	<script>
+				var acc = document.getElementsByClassName("accordion");
+				var i;
+
+				for (i = 0; i < acc.length; i++) {
+					acc[i].addEventListener("click", function() {
+						this.classList.toggle("active");
+						var panel = this.nextElementSibling;
+						if (panel.style.display === "block") {
+							panel.style.display = "none";
+						} else {
+							panel.style.display = "block";
+						}
+					});
+				}
+			</script>
+
+		</body>
+	</html>
+	

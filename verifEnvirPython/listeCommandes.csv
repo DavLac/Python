@@ -1,0 +1,24 @@
+libelle;execution;typeVerification;resultatAttendu;marge;groupeCommande
+Version OS;cat /etc/redhat-release;Egal;Red Hat Enterprise Linux Server release 6.7 (Santiago);;os
+Memoire totale;cat /proc/meminfo | grep 'MemTotal' | grep -o -E '[0-9]+';NombreAvecMarge;32880880;5;os
+Test port 22 > SSH;netstat -ant | grep ':22';NonNull;;;port
+Version Linux;uname -mrs;Egal;Linux 2.6.32-573.7.1.el6.x86_64 x86_64;;os
+Memoire libre;cat /proc/meminfo | grep 'MemFree' | grep -o -E '[0-9]+';NombreAvecMarge;6142364;5;os
+Test port 8080 KO;netstat -ant | grep ':8080';Null;;;port
+Test port 8080;netstat -ant | grep ':8080';NonNull;;;port
+Test port 1234;netstat -ant | grep ':1234';NonNull;;;port
+Membre groupe 'xxxx';getent group xxxx | cut -d':' -f1,3;Egal;xxxx:500;;groupe
+Swap;grep SwapTotal /proc/meminfo | awk '{print $2/(1024*1024)}';Egal;8;;os
+Information utilisateur 'nrpe';id -Gn nrpe| sed s/' '/','/g;Egal;nrpe,sds,se,sad,sso,ldap,pss,common,vtom;;groupe
+Test si répertoire '/interface/sds' existe;[ -d /interface/sds ]  && echo 'Dossier existe';Egal;Dossier existe;;os
+USER:nrpe:nrpe,ldap,common,vtom;"echo -n 'USER_DEF:nrpe:' ; id -Gn nrpe| sed s/' '/','/g";EgaliteListeSeparateurVirgule;USER:nrpe:nrpe,ldap,common,vtom;;Test egalite
+Iptables lancé;service iptables status;NonEgal;iptables: Firewall is not running.;;commandesNEW
+Java installé;rpm -q java;NonEgal;le paquetage java n'est pas installé;;commandesNEW
+Valeur ulimit pour 'bo';"cat /etc/security/limits.conf | grep ""bo"" | awk '{print $4}' | sed ':a;N;$!ba;s/\n/,/g'";Egal;8192,8192,8192,8192;;commandesNEW
+"Visudo : la ligne ""Defaults requiretty"" commenté";"cat /etc/sudoers | grep ""requiretty""";Null;;;commandesNEW
+"Visudo : présence ""Cmnd_Alias NRPECMD = /sbin/aureport, /usr/bin/sar""";"cat /etc/sudoers | grep ""Cmnd_Alias NRPECMD = /sbin/aureport, /usr/bin/sar""";NonNull;;;commandesNEW
+"Visudo : présence ""nrpe    ALL=(root)  NOPASSWD:NRPECMD""";"cat /etc/sudoers | grep ""nrpe    ALL=(root)  NOPASSWD:NRPECMD""";NonNull;;;commandesNEW
+"rsyslog.conf : présence ""local1.*          /appli/nrpe/agent/var/log/nrpe.log""";"cat /etc/rsyslog.conf | grep ""local1.*          /appli/nrpe/agent/var/log/nrpe.log""";NonNull;;;commandesNEW
+Iptables lancé;service iptables status;NonEgal;iptables: Firewall is not running.;;commandesNEW
+Java installé;rpm -q java;NonEgal;le paquetage java n'est pas installé;;commandesNEW
+Ntp synchronisé;"ntpstat | grep ""synchronised to NTP server""";NonNull;;;commandesNEW

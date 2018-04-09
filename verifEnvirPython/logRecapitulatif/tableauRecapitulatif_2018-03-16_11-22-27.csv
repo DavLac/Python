@@ -1,0 +1,17 @@
+Groupe serveur;Hostname serveur;Libelle commande;Retour commande;Resultat attendu;OK/NOK
+serveursASB;slnxsosoasb01;Test port 8080;;La commande attend un retour;NOK
+serveursASB;slnxsosoasb01;Test port 1234;;La commande attend un retour;NOK
+serveursASB;slnxsosoasb01;Information utilisateur 'nrpe';nrpe,sds,se,sad,sso,ldap,pss,common;nrpe,sds,se,sad,sso,ldap,pss,common,vtom;NOK
+serveursASB;slnxsosoasb02;Test port 8080;;La commande attend un retour;NOK
+serveursASB;slnxsosoasb02;Test port 1234;;La commande attend un retour;NOK
+serveursASB;slnxsosoasb02;Information utilisateur 'nrpe';nrpe,sds,se,sad,sso,ldap,pss,vtom,common;nrpe,sds,se,sad,sso,ldap,pss,common,vtom;NOK
+serveursVAF;slnxsosovaf01;Version Linux;Linux 2.6.32-573.12.1.el6.x86_64 x86_64;Linux 2.6.32-573.7.1.el6.x86_64 x86_64;NOK
+serveursVAF;slnxsosovaf01;Memoire libre;5563908;6142364 (marge: 5%);NOK
+serveursVAF;slnxsosovaf01;Swap;32;8;NOK
+serveursVAF;slnxsosovaf02;Version Linux;Linux 2.6.32-696.el6.x86_64 x86_64;Linux 2.6.32-573.7.1.el6.x86_64 x86_64;NOK
+serveursVAF;slnxsosovaf02;Memoire libre;8379324;6142364 (marge: 5%);NOK
+serveursVAF;slnxsosovaf02;Swap;15.75;8;NOK
+serveursVAF;slnxsosovaf03;Version OS;Red Hat Enterprise Linux Server release 6.9 (Santiago);Red Hat Enterprise Linux Server release 6.7 (Santiago);NOK
+serveursVAF;slnxsosovaf03;Version Linux;Linux 2.6.32-696.10.1.el6.x86_64 x86_64;Linux 2.6.32-573.7.1.el6.x86_64 x86_64;NOK
+serveursVAF;slnxsosovaf03;Memoire libre;5676752;6142364 (marge: 5%);NOK
+serveursVAF;slnxsosovaf03;Swap;32;8;NOK
